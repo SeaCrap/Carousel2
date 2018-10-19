@@ -1,12 +1,32 @@
 初始化()
 setInterval(() => {
-   makeLeave($(`.images > img:nth-child(${x(n)})`))//这里返回值是 undefined 后边接 .one 会报错
+   makeLeave(getImage(n))//这里返回值是 undefined 后边接 .one 会报错
         .one('transitionend',(e) => {
             makeEnter($(e.currentTarget))
         })
-    makeCurrent($(`.images > img:nth-child(${x(n + 1)})`))
+    makeCurrent(getImage(n + 1))
     n += 1
 },3000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*********下边是封装的函数**********/
+
+
 //确保 n 范围一直在 1~3
 function x(n){
  if(n > 3){
@@ -32,9 +52,14 @@ function makeCurrent($node){
 //leave 状态
 function makeLeave($node){
   $node.removeClass('current enter').addClass('leave')
-  return $node // 这时 makeLeave 返回值不是 undefined 了
+    return $node // 这时 makeLeave 返回值不是 undefined 了
 }
 //enter 状态
 function makeEnter($node){
   $node.removeClass('current enter').addClass('enter')
+}
+
+//getImage
+function getImage(n){
+  return $(`.images > img:nth-child(${x(n)}`)
 }
