@@ -1,10 +1,5 @@
-$('.images > img:nth-child(1)').addClass('current')
-$('.images > img:nth-child(2)').addClass('enter')
-$('.images > img:nth-child(3)').addClass('enter')
-
-let n = 1
+初始化()
 setInterval(() => {// 这里 setTimeout 改成setInterval
-   console.log(n)
     //$('.images > img:nth-child(n)'),这里是从第一张开始 没有第n个
     //$('.images > img:nth-child(n)') 改成ES6语法 $(`.images > img:nth-child(${n})`)
     //${n}:意思是 n 是几 这里就是几
@@ -27,3 +22,11 @@ function x(n){
   return n 
 }
 
+//初始化
+function 初始化(){
+  n = 1
+  $(`.images > img:nth-child(${n})`).addClass('current')
+  $(`.images > img:nth-child(${n+1})`).addClass('enter')
+  $(`.images > img:nth-child(${n+1}`).addClass('enter')
+ 
+}
