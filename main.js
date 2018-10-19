@@ -5,7 +5,7 @@ setInterval(() => {
           //e.currentTarget 当前元素
           // let 当前元素 = e.currentTarget
           //makeEnter($(当前元素))
-            makeEnter($(e.currentTarget) 
+            makeEnter($(e.currentTarget)) 
         })
     makeCurrent(getImage(n + 1))
     n += 1
@@ -50,16 +50,15 @@ function 初始化(){
 
 //current 状态
 function makeCurrent($node){
-  $node.removeClass('enter leave').addClass('current')
+  return $node.removeClass('enter leave').addClass('current')
 }
 //leave 状态
 function makeLeave($node){
-  $node.removeClass('current enter').addClass('leave')
-    return $node // 这时 makeLeave 返回值不是 undefined 了
+  return $node.removeClass('current enter').addClass('leave')
 }
 //enter 状态
 function makeEnter($node){
-  $node.removeClass('current enter').addClass('enter')
+  return $node.removeClass('current enter').addClass('enter')
 }
 
 //getImage
