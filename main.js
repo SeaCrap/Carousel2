@@ -1,7 +1,7 @@
 初始化()
 setInterval(() => {
    makeLeave(getImage(n))//这里返回值是 undefined 后边接 .one 会报错
-        .one('transitionend',(e) => {
+        .one('transitionend',(e) => {//transitionend 上个动画结束后
             makeEnter($(e.currentTarget))
         })
     makeCurrent(getImage(n + 1))
